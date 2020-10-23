@@ -1,4 +1,7 @@
-
+/**
+ * Helpers for app navigation
+ * 
+ */
 
 import {mapActions, mapState} from 'vuex'
 

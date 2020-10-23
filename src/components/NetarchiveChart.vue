@@ -13,7 +13,7 @@
   import {mapState} from 'vuex'
 
   export default {
-    name: 'SmurfChart',
+    name: 'NetarchiveChart',
     components: {
       LineChart
     },
