@@ -4,7 +4,7 @@
  */
 
  export default {
-  $_getNotifierContentObject(attemptedQuery, termSearchError) {
+  $_getNotifierContentObject(attemptedQuery, message, termSearchError) {
   if (termSearchError) {
     return {
       title: 'We know it\'s all about searching',

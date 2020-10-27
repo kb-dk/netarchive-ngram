@@ -94,11 +94,11 @@ const mutations = {
   doSearchError(state, message) {
    if (message.response.data.startsWith("Netarchive freetext syntax not accepted") && message.response.status === 400) {
     this.dispatch('setNotification', 
-      MessageHelper.$_getNotifierContentObject(state.attemptedQuery, true)
+      MessageHelper.$_getNotifierContentObject(state.attemptedQuery, message, true)
     )
     } else {
       this.dispatch('setNotification', 
-      MessageHelper.$_getNotifierContentObject(state.attemptedQuery, false)
+      MessageHelper.$_getNotifierContentObject(state.attemptedQuery, message, false)
     )
   }
   state.loading = false
