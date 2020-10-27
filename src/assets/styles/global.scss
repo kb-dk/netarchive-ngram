@@ -114,3 +114,42 @@ video {
   margin:  150px auto;
 }
 
+
+
+
+// Global notifications
+.notifications{
+  position: fixed;
+  left: 0;
+  top: 0;
+  width:40%;
+  z-index:100000;
+  background-color:black;
+  color:white;  
+  
+}
+.notificationCloseBtn {
+  background: transparent;
+  color:white;
+  border: none;
+  float: right;
+  position: relative;
+  font-size: 125%;
+  cursor: pointer;
+ }
+ 
+ .notifications .queryNotification {
+   font-weight:bold;
+ }
+
+ .notifications a {
+   color:white
+ }
+
+ .notificationSubText {
+  margin-top: 1rem;
+ }
+
+
+
+

@@ -1,5 +1,6 @@
 <template>
   <div class="search-container">
+    <notifications />
     <spinner/>
     <search-box/>
     <netarchive-chart/>
@@ -12,6 +13,7 @@ import NetarchiveChart from "@/components/NetarchiveChart.vue"
 import Spinner from "@/components/Spinner.vue"
 import SearchBox from '@/components/SearchBox.vue'
 import NavHelper from '@/components/helpers/navHelper'
+import Notifications from '@/components/notifications/Notifications.vue'
 import {mapActions} from 'vuex'
 
 
@@ -21,7 +23,8 @@ export default {
   components: {
    NetarchiveChart,
    Spinner, 
-   SearchBox
+   SearchBox,
+   Notifications
   },
 
   methods: {

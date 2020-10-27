@@ -1,6 +1,7 @@
 import Vue from "vue";
 import Vuex from "vuex";
 import {searchService} from '../services/SearchService'
+import MessageHelper from '../components/helpers/messageHelper'
 
 Vue.use(Vuex);
 
@@ -8,13 +9,16 @@ Vue.use(Vuex);
 
 const initialState = () => ({
   query: '',
+  // cache for current query in case server rejects it
+  attemptedQuery:'',
   results: {},
   loading:false,
   yearCountPercent: [],
   yearCountsTotal: [],
   datasetQueries:[],
   datasets:[],
-  emptyResult: false 
+  emptyResult: false,
+  notifications: [], 
 })
 
 const state = initialState()
@@ -26,8 +30,14 @@ const actions = {
   updateQuery ( {commit}, param) {
     commit('updateQuerySuccess', param)
   },
+  updateAttemptedQuery ( {commit}, param) {
+    commit('updateAttemptedQuery', param)
+  },
   doSearch ({ commit }, params) {
    commit('setLoadingStatus', true)
+   commit('updateAttemptedQuery', params)
+   
+
    searchService.search(params)
    .then(results => {this.dispatch('updateQuery', params), commit('doSearchSuccess', results)}, error =>
    commit('doSearchError', error))
@@ -40,12 +50,24 @@ const actions = {
   },
   addDataset({ commit }) {
     commit('addDataset')
+  },
+
+  /*Notification stuff - lets split this out later*/
+  setNotification( {commit}, notification) {
+    commit('setNotification', notification)
+  },
+  dismissNotification ( {commit}, notification) {
+    commit('dismissNotification', notification)
   }
+
 }
 
 const mutations = {
   updateQuerySuccess(state, param) {
     state.query = param
+  },
+  updateAttemptedQuery(state, param) {
+    state.attemptedQuery = param
   },
   addDataset(state, param) {
     state.query = param
@@ -68,9 +90,20 @@ const mutations = {
     state.results = results
     state.loading = false
   },
+
   doSearchError(state, message) {
-   console.log(state, message)
+   if (message.response.data.startsWith("Netarchive freetext syntax not accepted") && message.response.status === 400) {
+    this.dispatch('setNotification', 
+      MessageHelper.$_getNotifierContentObject(state.attemptedQuery, true)
+    )
+    } else {
+      this.dispatch('setNotification', 
+      MessageHelper.$_getNotifierContentObject(state.attemptedQuery, false)
+    )
+  }
+  state.loading = false
   },
+
   setLoadingStatus(state, status) {
     state.loading = status
   },
@@ -80,6 +113,17 @@ const mutations = {
           state[key] = newState[key]
     })
   },
+
+  /*Notification stuff - lets split this out later*/
+  setNotification(state, notification) {
+    console.log('setting notification')
+    state.notifications.push(notification)
+  },
+
+  dismissNotification(state, notification) {
+    Vue.delete(state.notifications, notification.__ob__.vmCount)
+    this.dispatch('setLoadingStatus', false)
+  }
 
 }
 
