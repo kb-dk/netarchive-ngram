@@ -1,9 +1,9 @@
-import Vue from "vue";
-import Vuex from "vuex";
+import Vue from 'vue'
+import Vuex from 'vuex'
 import {searchService} from '../services/SearchService'
 import MessageHelper from '../components/helpers/messageHelper'
 
-Vue.use(Vuex);
+Vue.use(Vuex)
 
 // Global search state.
 
@@ -86,13 +86,13 @@ const mutations = {
         count: state.yearCountsTotal.map(yearCountTotal => yearCountTotal.count),
         total: state.yearCountsTotal.map(yearCountTotal => yearCountTotal.total),
         percent: state.yearCountPercent
-      });
+      })
     state.results = results
     state.loading = false
   },
 
   doSearchError(state, message) {
-   if (message.response.data.startsWith("Netarchive freetext syntax not accepted") && message.response.status === 400) {
+   if (message.response.data.startsWith('Netarchive freetext syntax not accepted') && message.response.status === 400) {
     this.dispatch('setNotification', 
       MessageHelper.$_getNotifierContentObject(state.attemptedQuery, message, true)
     )

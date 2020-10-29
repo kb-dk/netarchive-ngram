@@ -6,13 +6,18 @@
              type="text"
              autofocus
              placeholder="Enter a search term but maksimum two words at a time, sorry">
-      <input id="querySubmit" title="Search" type="submit" value="Search"/>
-      <button @click.prevent="resetState()" v-if="searchQuery !== '' || Object.keys(results).length !== 0"
+      <input id="querySubmit"
+             title="Search"
+             type="submit"
+             value="Search">
+      <button v-if="searchQuery !== '' || Object.keys(results).length !== 0"
               id="clearSubmit"
               title="Clear search and results"
               type="button"
-              >X</button>
-     </form>
+              @click.prevent="resetState()">
+        X
+      </button>
+    </form>
   </div>
 </template> 
 

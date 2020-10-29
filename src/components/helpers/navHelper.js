@@ -34,7 +34,7 @@ import {mapActions, mapState} from 'vuex'
     $_handleRouteUpdates(to){
       const queryParamCount = Object.keys(to.query).length
       //If no params but we are in path search - just reset the whole shabang
-      if (to.name === "Search" && queryParamCount === 0){
+      if (to.name === 'Search' && queryParamCount === 0){
         this.resetSearchState()
       }
       // If we have more params tha datasets some action may be warrented

@@ -9,9 +9,7 @@
     <h2 v-if="notification.title">
       {{ notification.title }}
     </h2>
-    <p v-html="notification.text">
-      
-    </p>
+    <p v-html="notification.text" />
     <br>
     <p v-if="notification.srvMessage">
       <span>server message: </span>{{ notification.srvMessage }}

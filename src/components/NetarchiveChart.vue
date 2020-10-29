@@ -1,8 +1,8 @@
 <template>
   <div>
-  <div class="small">
-    <line-chart v-if="datasets.length > 0" :chart-data="datacollection" :options="options"></line-chart>
-  </div>
+    <div class="small">
+      <line-chart v-if="datasets.length > 0" :chart-data="datacollection" :options="options" />
+    </div>
   </div>
 </template>
 
@@ -18,18 +18,18 @@
       LineChart
     },
 
+    data () {
+      return {
+        datacollection: {},
+        options: ChartHelpers.getChartOptions()
+       }
+    },
+
     computed: {
     ...mapState({
       query: state => state.query,
      datasets: state => state.datasets
     })
-  },
-
-   data () {
-      return {
-        datacollection: {},
-        options: ChartHelpers.getChartOptions()
-       }
     },
 
     watch: {

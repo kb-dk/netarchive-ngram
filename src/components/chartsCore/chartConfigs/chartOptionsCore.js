@@ -6,14 +6,14 @@ export default {
   * 
   */
   getChartLabels: () => {
-    let labels = [];
-    let start = Config.START_YEAR;
-    const end = Config.END_YEAR;
+    let labels = []
+    let start = Config.START_YEAR
+    const end = Config.END_YEAR
       while (start < end) {
-        labels.push(start);
-        start++;
+        labels.push(start)
+        start++
       }
-    return labels;
+    return labels
   },
 
   /**
@@ -31,7 +31,7 @@ export default {
   * 
   */
   getChartDataSet(rawData) {
-    let datasetsEnrichedWithConfig = [];
+    let datasetsEnrichedWithConfig = []
     rawData.forEach((val, i) => {
       const datasetWithConfig = Object.assign(
         {
@@ -40,11 +40,11 @@ export default {
           data_abs: { count: val.count, total: val.total }
         },
         this.getChartVisualDataPointConfig(i),
-      );
-      datasetsEnrichedWithConfig.push(datasetWithConfig);
-    });
+      )
+      datasetsEnrichedWithConfig.push(datasetWithConfig)
+    })
     
-    return datasetsEnrichedWithConfig;
+    return datasetsEnrichedWithConfig
   },
 
   /**
@@ -65,8 +65,8 @@ export default {
   * Kudos - https://stackoverflow.com/questions/10014271/generate-random-color-distinguishable-to-humans 
   */
   getChartLineColor(salt){
-    const hue = salt * 137.508; // use golden angle approximation
-    return `hsl(${hue},50%,75%)`;
+    const hue = salt * 137.508 // use golden angle approximation
+    return `hsl(${hue},50%,75%)`
   },
 
 
@@ -110,14 +110,14 @@ export default {
 
 
   getLabelCallback(tooltipItem, data) {
-        let frac = 0.0000;
+        let frac = 0.0000
         let labeltext = data.datasets[tooltipItem.datasetIndex].label || ''
         labeltext = labeltext.length > 50 ? labeltext.substring(0, 50) + ' (...)' : labeltext
         if (tooltipItem.yLabel > 0) {
              const currentDatasetItem = data.datasets[tooltipItem.datasetIndex]
              const labelCount = currentDatasetItem .data_abs.count[tooltipItem.datasetIndex] || ''
              const labelTotalCount = currentDatasetItem .data_abs.total[tooltipItem.datasetIndex] || ''
-             frac = tooltipItem.yLabel;
+             frac = tooltipItem.yLabel
              labeltext = `${labeltext}: ${frac}% (${labelCount}/${labelTotalCount} hits)`
          } else {
              labeltext = `${labeltext}: ${frac}%`

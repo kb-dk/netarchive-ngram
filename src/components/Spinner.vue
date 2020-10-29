@@ -1,7 +1,7 @@
 <template>
-    <div v-if="loading" class="spinner">
-          LOADING...
-    </div>
+  <div v-if="loading" class="spinner">
+    LOADING...
+  </div>
 </template>
 <script>
 import { mapState} from 'vuex'
