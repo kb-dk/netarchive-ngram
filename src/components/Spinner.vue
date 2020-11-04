@@ -1,6 +1,22 @@
 <template>
     <div v-if="loading" class="spinner">
-          LOADING...
+      <div class="spinnerContainer">
+          <div class="dot" />
+          <div class="dot" /> 
+          <div class="dot" /> 
+          <div class="dot" />
+          <div class="dot" /> 
+          <div class="dot" />
+          <div class="dot" />
+          <div class="dot" /> 
+          <div class="dot" /> 
+          <div class="dot" />
+          <div class="dot" />
+          <div class="dot" />
+          <div class="dot" /> 
+          <div class="dot" /> 
+          <div class="dot" />    
+        </div>
     </div>
 </template>
 <script>

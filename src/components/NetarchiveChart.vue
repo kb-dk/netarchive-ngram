@@ -1,6 +1,6 @@
 <template>
   <div>
-  <div class="small">
+  <div class="chartContainer">
     <line-chart v-if="datasets.length > 0" :chart-data="datacollection" :options="options"></line-chart>
   </div>
   </div>

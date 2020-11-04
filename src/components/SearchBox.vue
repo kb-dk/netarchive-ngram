@@ -5,13 +5,16 @@
              v-model="searchQuery"
              type="text"
              autofocus
-             placeholder="Enter a search term but maksimum two words at a time, sorry">
-      <input id="querySubmit" title="Search" type="submit" value="Search"/>
+             placeholder="Enter a search term">
+      <button :disabled="loading" id="querySubmit" title="Search" type="submit" value="Search">
+        <div id="magnifyingGlass" />
+      </button>
       <button @click.prevent="resetState()" v-if="searchQuery !== '' || Object.keys(results).length !== 0"
               id="clearSubmit"
               title="Clear search and results"
               type="button"
-              >X</button>
+              >✕</button>
+              <p>Enter a search term but maksimum two words at a time.</p>
      </form>
   </div>
 </template> 

@@ -22,7 +22,8 @@ export default {
   */
   getChartOptions() {
     return {
-     tooltips:this.getTooltipOptions() 
+     tooltips:this.getTooltipOptions(),
+     maintainAspectRatio: false,
        }
   },
 
