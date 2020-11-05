@@ -276,13 +276,13 @@ video {
 
 @keyframes colorChange {
   0% {
-    filter: hue-rotate(0deg) blur(5px);
+    filter: invert(0) blur(5px);
   }
   50% {
-    filter: hue-rotate(360deg) blur(5px);
+    filter: invert(1) blur(5px);
   }
   100% {
-    filter: hue-rotate(0deg) blur(5px);
+    filter: invert(0) blur(5px);
   }
 }
 
