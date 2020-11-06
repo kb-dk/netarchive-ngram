@@ -6,16 +6,22 @@
              type="text"
              autofocus
              placeholder="Enter a search term">
-      <button :disabled="loading" id="querySubmit" title="Search" type="submit" value="Search">
+      <button id="querySubmit"
+              :disabled="loading"
+              title="Search"
+              type="submit"
+              value="Search">
         <div id="magnifyingGlass" />
       </button>
-      <button @click.prevent="resetState()" v-if="searchQuery !== '' || Object.keys(results).length !== 0"
+      <button v-if="searchQuery !== '' || Object.keys(results).length !== 0"
               id="clearSubmit"
               title="Clear search and results"
               type="button"
-              >✕</button>
-              <p>Enter a search term but maksimum two words at a time.</p>
-     </form>
+              @click.prevent="resetState()">
+        ✕
+      </button>
+      <p>Enter a search term but maksimum two words at a time.</p>
+    </form>
   </div>
 </template> 
 
