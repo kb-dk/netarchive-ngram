@@ -24,6 +24,7 @@ export default {
     return {
      tooltips:this.getTooltipOptions(),
      maintainAspectRatio: false,
+     scales: this.getScalesOptions()
        }
   },
 
@@ -56,9 +57,11 @@ export default {
     return {
       borderColor: this.getChartLineColor(i),
       backgroundColor: this.getChartLineColor(i),
-      tension: 0.4,
-      fill: false
-    }
+      tension: 0.5,
+      fill: false,
+      radius:.5,
+      hitRadius:10
+      }
   },
 
   /**
@@ -136,10 +139,31 @@ export default {
         borderColor: 'transparent',
         backgroundColor: chartInstance.config.data.datasets[tooltipItem.datasetIndex].borderColor
     }
+  },
+
+  getScalesOptions() {
+    return {
+      yAxes: [{
+        scaleLabel: {
+          display: true,
+          labelString: 'No of hits in %'
+        },
+        gridLines:{
+          drawOnChartArea:false,
+          drawTicks:true
+        }
+      }],
+      xAxes: [{
+        scaleLabel: {
+          display: true,
+          labelString: 'Crawl year'
+        },
+        gridLines:{
+          drawOnChartArea:false,
+          drawTicks:true
+        }
+      }]
+    }
   }
-
-    
-
-
   
 }
