@@ -26,7 +26,7 @@ import {mapActions, mapState} from 'vuex'
      //Loop through params and trigger new search if param is not empty string and update display query 
       queryParams.forEach((val) => {
         if (val !== ''){
-        this.doSearch(val)
+        this.doSearch({query:val, router: this.$router})
         }
       })
     },
@@ -48,11 +48,9 @@ import {mapActions, mapState} from 'vuex'
                 const last = ents[ents.length-1]
                 let obj = {}
                 obj[last[0]] = last[1]
-                //console.log(obj)
-                      this.$_doSearchFromQueryParams(obj)
+                  this.$_doSearchFromQueryParams(obj)
                 }
         }
-
       if (this.datasetQueries.length > queryParamCount){
         this.removeDataset()
       }

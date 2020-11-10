@@ -9,7 +9,7 @@
     return {
       title: 'We know it\'s all about searching',
       text: `However, your query <span class="queryNotification">'${attemptedQuery}'</span> shall not pass. 
-      <div class="notificationSubText"><a href="#/about">Read why your search ended in this mess</a></div>`,
+      <div class="notificationSubText"><a class="notificationLink" href="#/about">Read why your search ended in this mess</a></div>`,
       type: 'error',
       timeout: false
    }
