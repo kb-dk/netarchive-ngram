@@ -48,7 +48,7 @@ import Config from '../../config/configs'
        let now = new Date()
        let date = now.toDateString().replaceAll(' ', '-')
        let time = now.toTimeString().split(' ')[0].replaceAll(':', '_')
-       return  `Netarchive-ngram-${date}-${time}`
+       return  `Netarchive-ngram-${date}-${time}.csv`
     },
 
     createFinalDataSet(totalCount, yearCount, description){
