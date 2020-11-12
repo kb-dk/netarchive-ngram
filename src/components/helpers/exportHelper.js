@@ -16,7 +16,6 @@ import Config from '../../config/configs'
   methods: {
   
     $_doCSVExport() {
-      let filename = this.getFileName()
       //The arrays for constructing the dataset that's needed for the CSV engine
       let yearCount = [], totalCount = []
       let description = ['Year', 'Total_documents']
@@ -41,7 +40,8 @@ import Config from '../../config/configs'
       })
       
       const finalDataset = this.createFinalDataSet(totalCount, yearCount, description)  
-      this.exportToCSV(finalDataset)
+      const filename = this.getFileName()
+      this.exportToCSV(finalDataset, filename)
     },
 
     getFileName() {
