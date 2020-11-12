@@ -80,7 +80,7 @@ import Config from '../../config/configs'
     * Kudos:
     * https://stackoverflow.com/questions/14964035/how-to-export-javascript-array-info-to-csv-on-client-side
     * */
-    exportToCSV(finalDataset){
+    exportToCSV(finalDataset, filename){
       let processRow = function (row) {
         let finalVal = ''
         for (let j = 0; j < row.length; j++) {
