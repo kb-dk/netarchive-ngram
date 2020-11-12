@@ -45,7 +45,6 @@ export default {
       )
       datasetsEnrichedWithConfig.push(datasetWithConfig)
     })
-    
     return datasetsEnrichedWithConfig
   },
 
@@ -117,10 +116,11 @@ export default {
         let frac = 0.0000
         let labeltext = data.datasets[tooltipItem.datasetIndex].label || ''
         labeltext = labeltext.length > 50 ? labeltext.substring(0, 50) + ' (...)' : labeltext
+        const tooltipIndex = tooltipItem.index
         if (tooltipItem.yLabel > 0) {
              const currentDatasetItem = data.datasets[tooltipItem.datasetIndex]
-             const labelCount = currentDatasetItem .data_abs.count[tooltipItem.datasetIndex] || ''
-             const labelTotalCount = currentDatasetItem .data_abs.total[tooltipItem.datasetIndex] || ''
+             const labelCount = currentDatasetItem.data_abs.count[tooltipIndex] || ''
+             const labelTotalCount = currentDatasetItem.data_abs.total[tooltipIndex] || ''
              frac = tooltipItem.yLabel
              labeltext = `${labeltext}: ${frac}% (${labelCount}/${labelTotalCount} hits)`
          } else {
