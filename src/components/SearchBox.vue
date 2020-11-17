@@ -20,22 +20,35 @@
               @click.prevent="resetState()">
         ✕
       </button>
+      <div v-show="datasets.length !== 0" class="exportModalTrigger" @click.prevent="toggleExporter()">
+        Export graph data
+      </div>
       <p>Enter a search term but maksimum two words at a time.</p>
     </form>
+    
+   
+    <exporter v-if="showExporter" @close-exporter="toggleExporter()" />
   </div>
 </template> 
 
 <script>
 import { mapState, mapActions } from 'vuex'
 import NavHelper from './helpers/navHelper'
+import Exporter from './exporter/ExportData'
 
 export default {
   name: 'SearchBox',
+  components: {
+      Exporter
+  },
+
   mixins: [NavHelper],
+  
  
   data () {
     return {    
-        searchQuery:''
+        searchQuery:'',
+        showExporter:false
     }
   },
   
@@ -98,8 +111,8 @@ export default {
       this.resetSearchState()
     },
 
-    checkIfNewRoute() {
-      console.log(Object.values(this.$route.query).includes(this.searchQuery))
+    toggleExporter() {
+       this.showExporter = !this.showExporter
     }
   }
 }
