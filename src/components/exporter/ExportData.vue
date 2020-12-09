@@ -1,10 +1,11 @@
 <template>
   <div class="exportData">
     <div class="exportboxContainer">
-      <button class="exportboxCloseButton" @click="closeExporter()">
-        ✕
-      </button>
       <div class="exportboxContent">
+        <button class="exportboxCloseButton" @click="closeExporter()">
+          ✕
+        </button>
+     
         <h1>Download Graph data</h1>
         <div class="exportDataBox">
           <div>Format: <span class="dataFormat">CSV</span></div>  

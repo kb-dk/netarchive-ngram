@@ -119,6 +119,9 @@ video {
   box-sizing: border-box;
 }
 
+
+
+
 .searchForm {
   margin-bottom:15px;
 }
@@ -464,10 +467,9 @@ color:white;
   background-color: white;
 }
 
+
 .exportboxContainer .exportboxCloseButton {
-  position: fixed;
-	right: 50px;
-  top: 11px;
+  float:right;
   box-sizing: border-box;
 	border: 2px solid var(--secondary-bg-color);
 	color: var(--secondary-bg-color);
@@ -477,8 +479,12 @@ color:white;
   cursor: pointer;
   width: 30px;
 	height: 30px;
-  font-size: 100%;
+  font-size: 120%;
 }
+
+
+
+
 
 .exportDataBox{
   text-align: left;
@@ -486,6 +492,12 @@ color:white;
 margin: 0 0 0 33%;
 font-size:120%;
 }
+
+
+
+
+
+
 .exportDataBox button{
   margin: 30px 0 0 0;
   border:2px solid #002E70;
@@ -510,10 +522,11 @@ font-size:120%;
 }
 
 .exportModalTrigger{
-  margin: 0 330px 10px 0;
+  margin: 0 330px 10px 5px;
   text-decoration: underline;
   cursor:pointer;
 }
+
 
 .about h1{
   text-align:center;
@@ -529,6 +542,48 @@ font-size:120%;
 .legalDisclaimer{
   font-weight:bold;
 }
+
+@media only screen and (max-width: 1024px) {
+  #query {
+    width: 225px;
+  }
+  .exportModalTrigger {
+    margin: 0 150px 0 0;
+  }
+  .exportboxContent {
+    width: 90%;
+    margin: 40px 0 0 30px;
+    padding: 0 0 20px 20px;
+  }
+  
+  .exportboxContainer h1 {
+  display:block;
+  clear:both;
+  font-size: 120%;
+  }
+
+  .exportDataBox{
+    margin: 0 0 0 22%;
+  }
+
+  
+}
+
+
+@media only screen and (max-width: 380px) {
+  .exportboxContent {
+    width: 60%;
+    margin: 40px 0 0 30px;
+    padding: 0 0 20px 20px;
+  }
+
+  .exportDataBox{
+    margin: 0 0 0 17%;
+  }
+ 
+  
+}
+
 
 
 
