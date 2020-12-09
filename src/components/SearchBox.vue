@@ -23,7 +23,7 @@
       <div v-show="datasets.length !== 0" class="exportModalTrigger" @click.prevent="toggleExporter()">
         Export graph data
       </div>
-      <p>Enter a search term but maksimum two words at a time.</p>
+      <p>Enter a search term but maximum two words at a time.</p>
     </form>
     
    
