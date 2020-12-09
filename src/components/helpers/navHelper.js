@@ -26,7 +26,7 @@ import {mapActions, mapState} from 'vuex'
      //Loop through params and trigger new search if param is not empty string and update display query 
       queryParams.forEach((val) => {
         if (val !== ''){
-        this.doSearch(val)
+        this.doSearch({query:val, router: this.$router})
         }
       })
     },
@@ -34,7 +34,7 @@ import {mapActions, mapState} from 'vuex'
     $_handleRouteUpdates(to){
       const queryParamCount = Object.keys(to.query).length
       //If no params but we are in path search - just reset the whole shabang
-      if (to.name === "Search" && queryParamCount === 0){
+      if (to.name === 'Search' && queryParamCount === 0){
         this.resetSearchState()
       }
       // If we have more params tha datasets some action may be warrented
@@ -48,11 +48,9 @@ import {mapActions, mapState} from 'vuex'
                 const last = ents[ents.length-1]
                 let obj = {}
                 obj[last[0]] = last[1]
-                //console.log(obj)
-                      this.$_doSearchFromQueryParams(obj)
+                  this.$_doSearchFromQueryParams(obj)
                 }
         }
-
       if (this.datasetQueries.length > queryParamCount){
         this.removeDataset()
       }

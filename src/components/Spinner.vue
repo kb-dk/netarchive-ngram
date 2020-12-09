@@ -1,7 +1,23 @@
 <template>
-    <div v-if="loading" class="spinner">
-          LOADING...
+  <div v-if="loading" class="spinner">
+    <div class="spinnerContainer">
+      <div class="dot" />
+      <div class="dot" /> 
+      <div class="dot" /> 
+      <div class="dot" />
+      <div class="dot" /> 
+      <div class="dot" />
+      <div class="dot" />
+      <div class="dot" /> 
+      <div class="dot" /> 
+      <div class="dot" />
+      <div class="dot" />
+      <div class="dot" />
+      <div class="dot" /> 
+      <div class="dot" /> 
+      <div class="dot" />    
     </div>
+  </div>
 </template>
 <script>
 import { mapState} from 'vuex'
